@@ -1,5 +1,3 @@
-
-
 from qdrant_client import models, QdrantClient
 from sentence_transformers import SentenceTransformer
 from documents import document_list
