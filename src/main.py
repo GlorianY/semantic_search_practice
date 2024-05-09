@@ -34,6 +34,10 @@ client.upload_points(
 hits = client.search(
     collection_name="my_books",
     query_vector=encoder.encode("alien invasion").tolist(),
+    # Filter the most recent book from 2000s
+    query_filter=models.Filter(
+        must=[models.FieldCondition(key="year", range=models.Range(gte=2000))]
+    ),
     limit=3,
 )
 for hit in hits:
